@@ -1,3 +1,5 @@
 fn main() {
-    println!("Hello, world!");
+    // Check for current process.
+    // If none, start the daemon.
+    println!("Starting tik...");
 }
