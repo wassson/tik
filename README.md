@@ -12,8 +12,8 @@ Tik runs in the background as a daemon process. It should largely live on your m
 
 ### Writing code
 
-As you write code, `tik` will intelligently create `tiks` that store your changes with contextual `tik messages`. You can either wait for `tik` to group `tiks` and create a commit for you, or when you're ready, run `tik -c` and let `tik` create a commit and commit message for you. 
+As you write code, Tik will intelligently create `tiks` that store your changes with contextual `tik messages`. You can either wait for `tik` to group `tiks` and create a commit for you, or when you're ready, run `tik -c` and let `tik` create a commit and commit message for you. 
 
 ### The future
 
-Ideally, `tik` should be its own solution rather than an abstraction on top of `git`, but this will take some time.
+Ideally, `tik` should be its own solution rather than an abstraction on top of `git`, but it will take some time to play around and find the proper implementation.

@@ -27,7 +27,7 @@ fn main() {
     File::create(tik_dir.join("tik.pid")).unwrap();
 
     let daemonize = Daemonize::new()
-        .pid_file(new_dir.join("tik.pid")) // Every method except `new` and `start`
+        .pid_file(new_dir.join("tik.pid")) 
         .chown_pid_file(true)
         .user("tik")
         .group("tik")
