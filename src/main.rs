@@ -1,6 +1,7 @@
 use std::fs::File;
 use std::{process, fs};
 use std::{thread, time};
+
 use daemonize::Daemonize;
 
 fn run() {
@@ -24,8 +25,6 @@ fn main() {
         _ => (),
     }
 
-    File::create(tik_dir.join("tik.pid")).unwrap();
-
     let daemonize = Daemonize::new()
         .pid_file(new_dir.join("tik.pid")) 
         .chown_pid_file(true)
@@ -34,8 +33,7 @@ fn main() {
         .working_directory(new_dir.to_str().unwrap())
         .umask(0o777) 
         .stdout(stdout) 
-        .stderr(stderr) 
-        .privileged_action(|| "Executed before drop privileges");
+        .stderr(stderr); 
 
     match daemonize.start() {
         Ok(v) => {
