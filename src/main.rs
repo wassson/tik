@@ -15,17 +15,13 @@ fn run() {
 fn main() {
     // TODO: Check if process is already running
     let home_dir = dirs::home_dir().unwrap();
-    let new_dir = home_dir.join(".tik");
-    let tik_dir = new_dir.as_path();
-    let stdout = File::create(tik_dir.join("tik.out")).unwrap();
-    let stderr = File::create(tik_dir.join("tik.err")).unwrap();
-
-    match fs::create_dir_all(tik_dir) {
+    let tik_dir = home_dir.join(".tik");
+    
+    match fs::create_dir_all(&tik_dir) {
         Err(e) => println!("Error creating directory: {:?}", e.kind()),
         _ => (),
     }
 
-    // Create .pid file and set permissions
     let file = tik_dir.join("tik.pid");
     let _f = OpenOptions::new()
         .write(true)
@@ -34,6 +30,9 @@ fn main() {
 
     let permissions = Permissions::from_mode(0o777);
     let _ = std::fs::set_permissions(&file, permissions);
+
+    let stdout = File::create(tik_dir.join("tik.out")).unwrap();
+    let stderr = File::create(tik_dir.join("tik.err")).unwrap();
 
     // TODO: Revisit to privileged_action()
     let daemonize = Daemonize::new()
