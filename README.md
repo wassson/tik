@@ -10,9 +10,16 @@ It is important that we maintain control over what, when, and how code is commit
 
 Tik runs in the background as a daemon process. It should largely live on your machine sight unseen. The goal is to run it with `tik start` and forget about it. Might be worth considering some sort of startup command toggle in the future.
 
+`tik init --git` - primary action until tik servers are working
+`tik init` - We'll eventually want tik to be the primary version control rather than wrapping git
+
 ### Writing code
 
+1. `tik init --git`
 As you write code, Tik will intelligently create `tiks` that store your changes with contextual `tik messages`. You can either wait for `tik` to group `tiks` and create a commit for you, or when you're ready, run `tik -c` and let `tik` create a commit and commit message for you. 
+
+2. `tik init`
+TODO - Commits, streams, hosting
 
 ### The future
 
