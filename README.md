@@ -19,7 +19,7 @@ Tik runs in the background as a daemon process. It should largely live on your m
 As you write code, Tik will intelligently create `tiks` that store your changes with contextual `tik messages`. You can either wait for `tik` to group `tiks` and create a commit for you, or when you're ready, run `tik -c` and let `tik` create a commit and commit message for you. 
 
 2. `tik init`
-TODO - Commits, streams, hosting
+TODO - Commits, streams, hosting; Git not required.
 
 ### The future
 
